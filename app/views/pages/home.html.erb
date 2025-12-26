@@ -1,4 +1,13 @@
-<div>
-  <h1 class="font-bold text-4xl">Pages#home</h1>
-  <p>Find me in app/views/pages/home.html.erb</p>
-</div>
+<section class="relative w-full h-screen">
+  <!-- Background Image with overlay -->
+  <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('<%= asset_path("bahria-bg-school.jpg") %>');">
+    <div class="absolute inset-0 bg-black/50"></div> <!-- Overlay -->
+  </div>
+
+  <!-- Hero Content -->
+  <div class="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-4">
+    <h1 class="text-4xl sm:text-6xl font-bold mb-4">Welcome to Bahria Foundation College NYZ</h1>
+    <p class="text-lg sm:text-2xl mb-6">Excellence in Education and Innovation</p>
+    <%= link_to "Learn More", about_path, class: "btn btn-primary btn-lg" %>
+  </div>
+</section>

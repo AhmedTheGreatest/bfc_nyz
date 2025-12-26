@@ -1,23 +1,25 @@
-<header id="navbar" class="sticky top-0 bg-base-100 shadow-sm z-50">
+<header data-controller="navbar" data-navbar-target="navbar" id="navbar"
+        class="sticky top-0 bg-base-100 shadow-none z-50 transition-all duration-300">
 
   <!-- Desktop: Logo top row -->
-  <div class="hidden md:flex justify-center items-center h-32 sm:h-36" id="logo-row">
+  <div data-navbar-target="logoRow" class="hidden md:flex justify-center items-center h-32 sm:h-36 transition-all duration-300" id="logo-row">
     <%= link_to root_path do %>
-      <%= image_tag "bfc_logo.png", alt: "BFC NYZ", class: "h-32 sm:h-36" %>
+      <%= image_tag "bfc_logo.png", alt: "BFC NYZ",
+            class: "h-32 sm:h-36 transition-all duration-300", data: { navbar_target: "logo" } %>
     <% end %>
   </div>
 
   <!-- Navigation Row -->
-  <nav class="bg-base-100 border-t border-gray-200">
+  <nav data-navbar-target="bottomRow"
+       class="bg-transparent border-t border-gray-200 transition-all duration-300">
     <div class="container mx-auto flex items-center justify-between px-4 py-2">
 
       <!-- Mobile: Logo left -->
       <div class="flex md:hidden items-center">
-        <div>
-          <%= link_to root_path do %>
-            <%= image_tag "bfc_logo.png", alt: "BFC NYZ", class: "h-16 w-auto" %>
-          <% end %>
-        </div>
+        <%= link_to root_path do %>
+          <%= image_tag "bfc_logo.png", alt: "BFC NYZ",
+                class: "h-16 w-auto transition-all duration-300", data: { navbar_target: "logo" } %>
+        <% end %>
       </div>
 
       <!-- Mobile: Hamburger right -->

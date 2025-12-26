@@ -7,3 +7,4 @@
 #menu-toggle:checked + label + #mobile-menu {
   transform: translateX(0);
 }
+
