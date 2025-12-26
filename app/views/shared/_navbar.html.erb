@@ -1,21 +1,60 @@
 <header id="navbar" class="sticky top-0 bg-base-100 shadow-sm z-50">
-  <!-- Top Row: Logo -->
-  <div class="flex justify-center items-center transition-all duration-300" id="logo-row">
+
+  <!-- Desktop: Logo top row -->
+  <div class="hidden md:flex justify-center items-center h-32 sm:h-36" id="logo-row">
     <%= link_to root_path do %>
-      <%= image_tag "bfc_logo.png", alt: "BFC NYZ", class: "h-32 sm:h-36 transition-all duration-300" %>
+      <%= image_tag "bfc_logo.png", alt: "BFC NYZ", class: "h-32 sm:h-36" %>
     <% end %>
   </div>
 
-  <!-- Bottom Row: Links -->
+  <!-- Navigation Row -->
   <nav class="bg-base-100 border-t border-gray-200">
-    <div class="container mx-auto flex justify-center">
-      <ul class="menu menu-horizontal px-1 gap-2 py-2">
+    <div class="container mx-auto flex items-center justify-between px-4 py-2">
+
+      <!-- Mobile: Logo left -->
+      <div class="flex md:hidden items-center">
+        <div>
+          <%= link_to root_path do %>
+            <%= image_tag "bfc_logo.png", alt: "BFC NYZ", class: "h-16 w-auto" %>
+          <% end %>
+        </div>
+      </div>
+
+      <!-- Mobile: Hamburger right -->
+      <div class="md:hidden" data-controller="mobile-menu">
+        <button class="btn btn-ghost" data-action="click->mobile-menu#toggle">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+               viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+
+        <!-- Mobile menu -->
+        <div data-mobile-menu-target="menu"
+             class="fixed top-0 left-0 w-full h-full bg-base-100 transform -translate-x-full transition-transform duration-300 z-40">
+          <div class="flex justify-end p-4">
+            <button class="btn btn-ghost text-3xl" data-action="click->mobile-menu#toggle">&times;</button>
+          </div>
+          <ul class="flex flex-col items-center justify-center h-full gap-6 text-xl">
+            <li><%= link_to "Home", root_path, class: "btn btn-ghost" %></li>
+            <li><%= link_to "About", about_path, class: "btn btn-ghost" %></li>
+            <li><%= link_to "Academics", academics_path, class: "btn btn-ghost" %></li>
+            <li><%= link_to "Facilities", facilities_path, class: "btn btn-ghost" %></li>
+            <li><%= link_to "Contact", contact_path, class: "btn btn-ghost" %></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Desktop links -->
+      <ul class="hidden md:flex w-full justify-center gap-2">
         <li><%= link_to "Home", root_path, class: "btn btn-ghost" %></li>
         <li><%= link_to "About", about_path, class: "btn btn-ghost" %></li>
         <li><%= link_to "Academics", academics_path, class: "btn btn-ghost" %></li>
         <li><%= link_to "Facilities", facilities_path, class: "btn btn-ghost" %></li>
         <li><%= link_to "Contact", contact_path, class: "btn btn-ghost" %></li>
       </ul>
+
     </div>
   </nav>
 </header>

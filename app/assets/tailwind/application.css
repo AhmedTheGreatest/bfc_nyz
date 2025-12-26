@@ -2,3 +2,8 @@
 @plugin "daisyui" {
   themes: light --default, dark --prefersdark;
 }
+
+/* Mobile menu slide-in */
+#menu-toggle:checked + label + #mobile-menu {
+  transform: translateX(0);
+}
