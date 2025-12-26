@@ -1,4 +1,4 @@
-<section class="relative w-full h-screen">
+<section class="relative w-full h-screen mb-12 flex items-center justify-center">
   <!-- Background Image with overlay -->
   <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('<%= asset_path("bahria-bg-school.jpg") %>');">
     <div class="absolute inset-0 bg-black/50"></div> <!-- Overlay -->
@@ -6,8 +6,79 @@
 
   <!-- Hero Content -->
   <div class="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-4">
-    <h1 class="text-4xl sm:text-6xl font-bold mb-4">Welcome to Bahria Foundation College NYZ</h1>
-    <p class="text-lg sm:text-2xl mb-6">Excellence in Education and Innovation</p>
+    <h1 class="font-heading text-4xl sm:text-6xl font-bold mb-4">Welcome to Bahria Foundation College NYZ</h1>
+    <p class="font-sans text-lg sm:text-2xl mb-6">Excellence in Education and Innovation</p>
     <%= link_to "Learn More", about_path, class: "btn btn-primary btn-lg" %>
+  </div>
+</section>
+
+
+<section class="container mx-auto px-4 py-12">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div class="text-center">
+      <h2 class="font-heading text-2xl font-bold mb-2">Our Mission</h2>
+      <p class="font-sans text-base">To provide quality education that nurtures creativity, critical thinking, and lifelong learning.</p>
+    </div>
+    <div class="text-center">
+      <h2 class="font-heading text-2xl font-bold mb-2">Academic Excellence</h2>
+      <p class="font-sans text-base">Offering a diverse curriculum designed to challenge and inspire students to reach their full potential.</p>
+    </div>
+    <div class="text-center">
+      <h2 class="font-heading text-2xl font-bold mb-2">State-of-the-Art Facilities</h2>
+      <p class="font-sans text-base">Equipped with modern classrooms, laboratories, and recreational areas to enhance the learning experience.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- Section heading -->
+
+<section class="container mx-auto px-4 py-12">
+  <div class="text-center mb-12">
+    <h2 class="text-4xl font-semibold tracking-tight">
+      Our Inspirations
+    </h2>
+    <div class="w-24 h-1 bg-primary mx-auto mt-4 rounded-full"></div>
+  </div>
+  <div class="mx-auto px-4 py-12 grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-1 items-stretch">    
+    <!-- Card 1 -->
+    <div class="card card-xl shadow-sm bg-primary text-primary-content h-full max-w-md w-full mx-auto">
+
+      <figure class="px-10 pt-10">
+        <%= image_tag "quaideazam.jpg",
+              alt: "Quaid-e-Azam Muhammad Ali Jinnah",
+              class: "w-auto rounded-lg object-cover" %>
+      </figure>
+
+      <div class="card-body items-center text-center flex flex-col">
+        <h2 class="card-title">
+          Quaid-e-Azam<br>Muhammad Ali Jinnah
+        </h2>
+        <p>
+          "There is no doubt that the future of our state will and must greatly depend upon the type of education we give to our children and the way in which we bring them up as future citizens of Pakistan."
+        </p>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <div class="hidden lg:flex items-stretch">
+      <div class="divider divider-horizontal m-0"></div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="card card-xl shadow-sm bg-primary text-primary-content h-full max-w-md w-full mx-auto">
+      <figure class="px-10 pt-10">
+        <%= image_tag "allamaiqbal.jpeg",
+              alt: "Allama Muhammad Iqbal",
+              class: "w-auto rounded-lg object-cover" %>
+      </figure>
+
+      <div class="card-body items-center text-center flex flex-col">
+        <h2 class="card-title">Allama Muhammad Iqbal</h2>
+        <p>
+          "If you apply the contents of knowledge for the betterment of your heart (character, spirituality, manners) indeed it will become your friend. ON the other hand, if you apply knowledge to the bodily requirements (material gains and physical needs), it will become a venomous serpent for you."
+        </p>
+      </div>
+    </div>
   </div>
 </section>
