@@ -1,0 +1,47 @@
+<section class="container mx-auto px-4 py-16">
+  <!-- Page Heading -->
+  <div class="text-center mb-12">
+    <h1 class="text-4xl sm:text-5xl font-bold mb-4">Announcements</h1>
+    <p class="text-gray-600 text-lg">
+      Latest updates and important notices from BFC
+    </p>
+  </div>
+
+  <!-- Announcements List -->
+  <div class="max-w-4xl mx-auto space-y-6">
+    <% @announcements.each do |announcement| %>
+      <%= link_to announcement_path(announcement),
+          class: "block card bg-base-100 shadow-sm hover:shadow-md transition-all duration-300 border-l-4 border-primary" do %>
+
+        <div class="card-body">
+          <div class="flex items-start justify-between gap-4">
+            <h2 class="text-xl font-semibold">
+              <%= announcement.title %>
+            </h2>
+
+            <% if announcement.pinned? %>
+              <span class="badge badge-primary badge-outline">
+                📌 Pinned
+              </span>
+            <% end %>
+          </div>
+
+          <p class="text-gray-600 mt-2 line-clamp-2">
+            <%= truncate(announcement.body, length: 160) %>
+          </p>
+
+          <div class="mt-4 text-sm text-gray-500">
+            Posted on <%= announcement.created_at.strftime("%d %B %Y") %>
+          </div>
+        </div>
+
+      <% end %>
+    <% end %>
+
+    <% if @announcements.empty? %>
+      <p class="text-center text-gray-500">
+        No announcements at the moment.
+      </p>
+    <% end %>
+  </div>
+</section>

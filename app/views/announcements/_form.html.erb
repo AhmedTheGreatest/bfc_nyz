@@ -1,0 +1,66 @@
+<%= form_with(model: announcement, class: "space-y-8") do |form| %>
+
+  <% if announcement.errors.any? %>
+    <div class="alert alert-error shadow-sm">
+      <div>
+        <h3 class="font-semibold mb-1">
+          <%= pluralize(announcement.errors.count, "error") %> prevented this announcement from being saved
+        </h3>
+        <ul class="list-disc ml-5 text-sm">
+          <% announcement.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <!-- Title -->
+  <div class="form-control">
+    <%= form.label :title, class: "label font-semibold" %>
+    <%= form.text_field :title,
+          placeholder: "e.g. School Reopens on Monday",
+          class: [
+            "input input-bordered w-full text-lg",
+            {
+              "input-error": announcement.errors[:title].any?
+            }
+          ] %>
+  </div>
+
+  <!-- Body -->
+  <div class="form-control">
+    <%= form.label :body, class: "label font-semibold" %>
+    <%= form.text_area :body,
+          rows: 7,
+          placeholder: "Write the full announcement here...",
+          class: [
+            "textarea textarea-bordered w-full leading-relaxed",
+            {
+              "textarea-error": announcement.errors[:body].any?
+            }
+          ] %>
+  </div>
+
+  <!-- Pinned -->
+  <div class="form-control">
+    <label class="label cursor-pointer justify-start gap-4">
+      <%= form.check_box :pinned, class: "checkbox checkbox-primary" %>
+      <div>
+        <span class="font-semibold">Pin this announcement</span>
+        <p class="text-sm text-gray-500">
+          Pinned announcements appear at the top
+        </p>
+      </div>
+    </label>
+  </div>
+
+  <!-- Actions -->
+  <div class="border-t pt-6 flex flex-col sm:flex-row gap-3 justify-end">
+    <%= link_to "Cancel", announcements_path,
+          class: "btn btn-ghost" %>
+
+    <%= form.submit class: "btn btn-primary px-8" %>
+  </div>
+
+<% end %>
