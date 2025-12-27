@@ -1,4 +1,180 @@
-<div>
-  <h1 class="font-bold text-4xl">Pages#about</h1>
-  <p>Find me in app/views/pages/about.html.erb</p>
-</div>
+<section>
+  <div
+    class="hero min-h-screen"
+    style="background-image: url('<%= asset_path("about_bg.jpg") %>');"
+  >
+    <div class="hero-overlay bg-black/60"></div>
+
+    <div
+      class="
+        hero-content
+        text-neutral-content
+        w-full
+        px-6
+        md:justify-center
+        lg:justify-start
+      "
+    >
+      <div
+        class="
+          max-w-xl
+          <%# text-center %>
+          <%# md:text-center %>
+          lg:text-left
+          lg:ml-24
+        "
+      >
+        <h1 class="mb-5 text-4xl md:text-5xl font-bold">
+          About Bahria Foundation College
+        </h1>
+
+        <p class="mb-6 leading-relaxed">
+          Bahria Foundation College is dedicated to nurturing disciplined, confident, and intellectually curious students. Through quality education, strong moral values, and a commitment to excellence, we prepare our students to meet future challenges and serve society with integrity.
+        </p>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-16 bg-base-100">
+  <div class="container mx-auto px-6 max-w-4xl text-center">
+    
+    <h2 class="text-3xl md:text-4xl font-bold mb-6">
+      Our Vision
+      <div class="w-24 h-1 bg-primary mx-auto mt-4 rounded-full"></div>
+    </h2>
+
+    <blockquote class="italic text-lg md:text-xl text-gray-600 leading-relaxed">
+      “To provide sustainable development opportunities to all through innovative and inclusive educational activities aligned with national aspirations and global outlook.”
+    </blockquote>
+
+  </div>
+</section>
+
+<section class="py-2 pb-8 bg-base-100">
+  <div class="container mx-auto px-6 max-w-4xl text-center">
+    
+    <h2 class="text-3xl md:text-4xl font-bold mb-6">
+      Our Mission
+      <div class="w-24 h-1 bg-primary mx-auto mt-4 rounded-full"></div>
+    </h2>
+
+    <blockquote class="italic text-lg md:text-xl text-gray-600 leading-relaxed">
+      “To provide quality and affordable education to equip the beneficiaries with knowledege and skills for self-sustainability and socio-economic growth.”
+    </blockquote>
+
+  </div>
+</section>
+
+<section class="py-20 bg-base-200">
+  <div class="container mx-auto px-6 max-w-6xl">
+    
+    <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">
+      A Message from the Principal
+      <div class="w-24 h-1 bg-primary mx-auto mt-4 rounded-full"></div>
+    </h2>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center bg-base-100 rounded-2xl shadow-md overflow-hidden">
+      
+      <!-- Principal Image -->
+      <div class="h-full">
+        <%= image_tag "principal.jpg",
+            alt: "Principal",
+            class: "w-full h-full object-cover min-h-[350px] lg:min-h-[450px]" %>
+      </div>
+
+      <!-- Message -->
+      <div class="p-8 lg:p-12">
+        <p class="italic text-gray-600 text-lg leading-relaxed mb-6">
+          “At Bahria Foundation College, we believe education is the foundation
+          of strong character, discipline, and leadership. Our goal is to nurture
+          confident individuals who are prepared to face future challenges.”
+        </p>
+
+        <p class="text-gray-700 leading-relaxed mb-6">
+          Through academic excellence and moral values, we strive to create a
+          supportive learning environment that encourages curiosity, respect,
+          and lifelong growth.
+        </p>
+
+        <div>
+          <p class="font-semibold text-lg">Principal</p>
+          <p class="text-sm text-gray-500">
+            Bahria Foundation College, Nuzhat Yazdani Campus
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="bg-base-200 py-20">
+  <div class="container mx-auto px-4">
+    <!-- Heading -->
+    <div class="text-center mb-14">
+      <h2 class="text-4xl font-bold mb-3">Our Impact in Numbers</h2>
+      <p class="text-base-content/70">
+        A legacy built on excellence, discipline, and growth.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr">
+      
+      <!-- Tile 1 -->
+      <div class="bg-primary text-primary-content rounded-2xl p-8 shadow-md flex flex-col justify-center hover:scale-[1.02] transition">
+        <h3 class="text-5xl font-extrabold mb-2">25+</h3>
+        <p class="text-lg">Years of Excellence</p>
+      </div>
+
+      <!-- Tile 2 -->
+      <div class="bg-base-100 text-primary rounded-2xl p-8 shadow-md flex flex-col justify-center hover:scale-[1.02] transition">
+        <h3 class="text-5xl font-extrabold mb-2">95%</h3>
+        <p class="text-lg">Board Examination Success Rate</p>
+      </div>
+
+      <!-- Tile 3 -->
+      <div class="bg-primary text-primary-content rounded-2xl p-8 shadow-md flex flex-col justify-center hover:scale-[1.02] transition">
+        <h3 class="text-5xl font-extrabold mb-2">700+</h3>
+        <p class="text-lg">Enrolled Students</p>
+      </div>
+
+      <!-- Tile 4 -->
+      <div class="bg-base-100 text-primary rounded-2xl p-8 shadow-md flex flex-col justify-center hover:scale-[1.02] transition">
+        <h3 class="text-5xl font-extrabold mb-2">50+</h3>
+        <p class="text-lg">Qualified Faculty Members</p>
+      </div>
+
+      <!-- Tile 5 -->
+      <div class="bg-primary text-primary-content rounded-2xl p-8 shadow-md flex flex-col justify-center hover:scale-[1.02] transition">
+        <h3 class="text-5xl font-extrabold mb-2">87</h3>
+        <p class="text-lg">Our Other Campuses</p>
+      </div>
+
+      <!-- Tile 6 -->
+      <div class="bg-base-100 text-primary rounded-2xl p-8 shadow-md flex flex-col justify-center hover:scale-[1.02] transition">
+        <h3 class="text-5xl font-extrabold mb-2">15+</h3>
+        <p class="text-lg">Annual Events</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<section class="py-16 text-center">
+  <h3 class="text-2xl font-semibold mb-4">
+    Discover a place where education meets 
+    <span class="text-rotate font-bold font-sans">
+      <span class="justify-items-start">
+        <span>character</span>
+        <span>innovation</span>
+        <span>excellence</span>
+        <span>excellence</span>
+      </span>
+    </span>
+  </h3>
+  <%= link_to "Admission Now", '#', class: "btn btn-primary" %>
+  <%= link_to "Contact Us", contact_path, class: "btn btn-primary" %>
+</section>
