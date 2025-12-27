@@ -23,9 +23,8 @@
             <% if Current.user&.admin? %>
               <%= link_to "Edit", edit_announcement_path(@announcement),
                           class: "btn btn-sm btn-outline btn-primary" %>
-              <%= link_to "Delete", announcement_path(@announcement),
+              <%= button_to  "Delete", announcement_path(@announcement),
                           method: :delete,
-                          data: { confirm: "Are you sure?" },
                           class: "btn btn-sm btn-outline btn-error" %>
             <% end %>
           </div>
@@ -38,7 +37,7 @@
         <div class="divider"></div>
 
         <div class="prose max-w-none">
-          <%= simple_format(@announcement.body) %>
+          <%= @announcement.body %>
         </div>
 
       </div>

@@ -24,7 +24,7 @@
                 <%= announcement.title %>
               </h2>
               <p class="text-gray-600 mt-2 line-clamp-2">
-                <%= truncate(announcement.body, length: 160) %>
+                <%= truncate(announcement.body.to_plain_text, length: 160) %>
               </p>
             <% end %>
 
@@ -42,9 +42,8 @@
               <div class="flex gap-2">
                 <%= link_to "Edit", edit_announcement_path(announcement),
                             class: "btn btn-sm btn-outline btn-primary" %>
-                <%= link_to "Delete", announcement_path(announcement),
+                <%= button_to "Delete", announcement_path(announcement),
                             method: :delete,
-                            data: { confirm: "Are you sure?" },
                             class: "btn btn-sm btn-outline btn-error" %>
               </div>
             <% end %>
