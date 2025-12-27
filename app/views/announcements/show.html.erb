@@ -13,11 +13,22 @@
             <%= @announcement.title %>
           </h1>
 
-          <% if @announcement.pinned? %>
-            <span class="badge badge-primary badge-outline">
-              📌 Pinned
-            </span>
-          <% end %>
+          <div class="flex items-center gap-2">
+            <% if @announcement.pinned? %>
+              <span class="badge badge-primary badge-outline">
+                📌 Pinned
+              </span>
+            <% end %>
+
+            <% if Current.user&.admin? %>
+              <%= link_to "Edit", edit_announcement_path(@announcement),
+                          class: "btn btn-sm btn-outline btn-primary" %>
+              <%= link_to "Delete", announcement_path(@announcement),
+                          method: :delete,
+                          data: { confirm: "Are you sure?" },
+                          class: "btn btn-sm btn-outline btn-error" %>
+            <% end %>
+          </div>
         </div>
 
         <p class="text-gray-500 mt-2">

@@ -5,19 +5,28 @@
     <p class="text-gray-600 text-lg">
       Latest updates and important notices from BFC
     </p>
+
+    <% if Current.user&.admin? %>
+      <div class="mt-4">
+        <%= link_to "New Announcement", new_announcement_path, class: "btn btn-primary" %>
+      </div>
+    <% end %>
   </div>
 
   <!-- Announcements List -->
   <div class="max-w-4xl mx-auto space-y-6">
     <% @announcements.each do |announcement| %>
-      <%= link_to announcement_path(announcement),
-          class: "block card bg-base-100 shadow-sm hover:shadow-md transition-all duration-300 border-l-4 border-primary" do %>
-
+      <div class="card bg-base-100 shadow-sm hover:shadow-md transition-all duration-300 border-l-4 border-primary">
         <div class="card-body">
           <div class="flex items-start justify-between gap-4">
-            <h2 class="text-xl font-semibold">
-              <%= announcement.title %>
-            </h2>
+            <%= link_to announcement_path(announcement), class: "flex-1" do %>
+              <h2 class="text-xl font-semibold hover:underline">
+                <%= announcement.title %>
+              </h2>
+              <p class="text-gray-600 mt-2 line-clamp-2">
+                <%= truncate(announcement.body, length: 160) %>
+              </p>
+            <% end %>
 
             <% if announcement.pinned? %>
               <span class="badge badge-primary badge-outline">
@@ -26,16 +35,22 @@
             <% end %>
           </div>
 
-          <p class="text-gray-600 mt-2 line-clamp-2">
-            <%= truncate(announcement.body, length: 160) %>
-          </p>
+          <div class="mt-4 flex justify-between items-center text-sm text-gray-500">
+            <span>Posted on <%= announcement.created_at.strftime("%d %B %Y") %></span>
 
-          <div class="mt-4 text-sm text-gray-500">
-            Posted on <%= announcement.created_at.strftime("%d %B %Y") %>
+            <% if Current.user&.admin? %>
+              <div class="flex gap-2">
+                <%= link_to "Edit", edit_announcement_path(announcement),
+                            class: "btn btn-sm btn-outline btn-primary" %>
+                <%= link_to "Delete", announcement_path(announcement),
+                            method: :delete,
+                            data: { confirm: "Are you sure?" },
+                            class: "btn btn-sm btn-outline btn-error" %>
+              </div>
+            <% end %>
           </div>
         </div>
-
-      <% end %>
+      </div>
     <% end %>
 
     <% if @announcements.empty? %>

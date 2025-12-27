@@ -1,5 +1,8 @@
 class AnnouncementsController < ApplicationController
   before_action :set_announcement, only: %i[ show edit update destroy ]
+  before_action :require_admin!, except: %i[ index show ]
+
+  allow_unauthenticated_access only: %i[ index show ]
 
   # GET /announcements or /announcements.json
   def index
