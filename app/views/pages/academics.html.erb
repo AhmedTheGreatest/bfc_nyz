@@ -1,4 +1,47 @@
-<div>
-  <h1 class="font-bold text-4xl">Pages#academics</h1>
-  <p>Find me in app/views/pages/academics.html.erb</p>
-</div>
+<!-- app/views/pages/academics.html.erb -->
+
+<section class="container mx-auto px-4 py-12 bg-gray">
+  <!-- Page Heading -->
+  <div class="text-center mb-12">
+    <h1 class="text-4xl sm:text-5xl font-bold mb-4">Our Academic Programs</h1>
+    <p class="text-lg text-gray-600">Discover the curricula and sessions offered at BFC</p>
+  </div>
+
+  <!-- Academic Program Cards -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+    <!-- Matric / SSC -->
+    <div class="card bg-base-100 shadow-md hover:shadow-xl transition-all duration-300 border-t-4 border-primary">
+      <div class="card-body text-center flex flex-col items-center">
+        <h2 class="text-2xl font-bold">Matric / SSC</h2>
+        <p class="text-gray-700 mt-2 px-4">BFC follows the national curriculum for grades 9 & 10.</p>
+        <p class="mt-4 italic text-gray-500">Academic session: March - February</p>
+      </div>
+    </div>
+
+
+    <!-- O-Levels -->
+    <div class="card bg-base-100 shadow-md hover:shadow-xl transition-all duration-300 border-t-4 border-primary">
+      <div class="card-body text-center flex flex-col items-center">
+        <h2 class="text-2xl font-bold">O-Levels</h2>
+        <p class="text-gray-600 mt-2">International curriculum based on Cambridge standards.</p>
+        <p class="mt-4 italic text-gray-500">Academic session: August - July</p>
+      </div>
+    </div>
+
+    <!-- HSSC / Inter -->
+    <div class="card bg-base-100 shadow-md hover:shadow-xl transition-all duration-300 border-t-4 border-primary">
+      <div class="card-body text-center flex flex-col items-center">
+        <h2 class="text-2xl font-bold">HSSC / Intermediate</h2>
+        <p class="text-gray-600 mt-2">Prepares students for higher education and professional studies.</p>
+        <p class="mt-4 italic text-gray-500">Academic session: March - February</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Optional note / info -->
+  <div class="mt-12 text-center ">
+    <p>BFC ensures each program combines academic excellence with co-curricular activities.</p>
+  </div>
+</section>
+
+

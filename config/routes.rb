@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get "academics",  to: "pages#academics"
   get "facilities", to: "pages#facilities"
   get "contact",    to: "pages#contact"
+  post "contact",   to: "pages#submit_contact"
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

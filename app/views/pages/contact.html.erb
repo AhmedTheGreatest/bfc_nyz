@@ -1,4 +1,40 @@
-<div>
-  <h1 class="font-bold text-4xl">Pages#contact</h1>
-  <p>Find me in app/views/pages/contact.html.erb</p>
-</div>
+<!-- app/views/pages/contact.html.erb -->
+<section class="container mx-auto px-4 py-12">
+  <div class="text-center mb-12">
+    <h1 class="text-4xl sm:text-5xl font-bold mb-4">Get in Touch</h1>
+    <p class="text-gray-600 text-lg">We’d love to hear from you! Reach out for inquiries or feedback.</p>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <!-- Contact Form -->
+    <div class="bg-base-100 p-8 rounded-xl shadow-lg">
+      <%= form_with url: contact_path, method: :post, local: true do |f| %>
+        <div class="mb-4">
+          <%= f.label :name, class: "block text-gray-700 font-semibold mb-2" %>
+          <%= f.text_field :name, class: "input input-bordered w-full" %>
+        </div>
+        <div class="mb-4">
+          <%= f.label :email, class: "block text-gray-700 font-semibold mb-2" %>
+          <%= f.email_field :email, class: "input input-bordered w-full" %>
+        </div>
+        <div class="mb-4">
+          <%= f.label :message, class: "block text-gray-700 font-semibold mb-2" %>
+          <%= f.text_area :message, class: "textarea textarea-bordered w-full", rows: 6 %>
+        </div>
+        <div class="text-right">
+          <%= f.submit "Send Message", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+
+    <!-- Google Map -->
+    <div class="rounded-xl overflow-hidden shadow-lg">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3617.9188268386406!2d67.09661553193969!3d24.934835057775167!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb338b86ca39255%3A0xe870c79e9c007187!2sBahria%20Foundation%20College!5e0!3m2!1sen!2s!4v1766843849585!5m2!1sen!2s"
+        width="100%" height="100%" class="min-h-[400px]" style="border:0;" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</section>
+
+
