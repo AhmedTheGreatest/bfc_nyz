@@ -1,9 +1,25 @@
 <section class="container mx-auto px-4 py-16">
   <%= link_to "← Back to Events", events_path, class: "text-sm text-gray-500 hover:underline" %>
 
-  <div class="mt-6 card bg-base-100 shadow">
-    <div class="card-body">
+  <div class="mt-6 card bg-base-100 shadow" data-controller="lightbox">
+    <!-- Lightbox Overlay -->
+      <div class="fixed inset-0 bg-black bg-opacity-90 hidden
+            flex items-center justify-center z-50"
+           data-lightbox-target="overlay">
+        <button data-action="click->lightbox#close"
+                class="absolute top-4 right-4 text-white text-3xl font-bold z-50">×</button>
 
+        <button data-action="click->lightbox#prev"
+                class="absolute left-4 top-1/2 -translate-y-1/2 text-white text-3xl font-bold z-50">‹</button>
+
+        <img data-lightbox-target="image"
+            class="max-h-full max-w-full object-contain rounded shadow-lg transition-transform" />
+
+        <button data-action="click->lightbox#next"
+                class="absolute right-4 top-1/2 -translate-y-1/2 text-white text-3xl font-bold z-50">›</button>
+      </div>
+
+    <div class="card-body">
       <div class="flex items-start justify-between">
         <h1 class="text-3xl font-bold"><%= @event.title %></h1>
         <% if Current.user&.admin? %>
@@ -20,13 +36,17 @@
       <div class="divider"></div>
 
       <% if @event.photos.attached? %>
-        <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-          <% @event.photos.each do |photo| %>
-            <%= image_tag photo.variant(resize_to_limit: [600, 400]), class: "rounded-md shadow" %>
+        <div class="mt-6 columns-1 sm:columns-2 md:columns-3 gap-4">
+          <% @event.photos.each_with_index do |photo, index| %>
+            <%= image_tag photo.variant(resize_to_limit: [800, 800]),
+                  class: "mb-4 w-full rounded-md shadow cursor-pointer break-inside-avoid",
+                  data: {
+                    action: "click->lightbox#open",
+                    lightbox_index: index
+                  } %>
           <% end %>
         </div>
       <% end %>
-
     </div>
   </div>
 </section>
