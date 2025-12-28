@@ -1,0 +1,32 @@
+<section class="container mx-auto px-4 py-16">
+  <%= link_to "← Back to Events", events_path, class: "text-sm text-gray-500 hover:underline" %>
+
+  <div class="mt-6 card bg-base-100 shadow">
+    <div class="card-body">
+
+      <div class="flex items-start justify-between">
+        <h1 class="text-3xl font-bold"><%= @event.title %></h1>
+        <% if Current.user&.admin? %>
+          <div class="flex gap-2">
+            <%= link_to "Edit", edit_event_path(@event), class: "btn btn-sm btn-primary btn-outline" %>
+            <%= button_to "Delete", event_path(@event),
+                        method: :delete,
+                        class: "btn btn-sm btn-error btn-outline" %>
+          </div>
+        <% end %>
+      </div>
+
+      <p class="text-gray-500 mt-2"><%= @event.date.strftime("%d %B %Y") if @event.date %></p>
+      <div class="divider"></div>
+
+      <% if @event.photos.attached? %>
+        <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+          <% @event.photos.each do |photo| %>
+            <%= image_tag photo.variant(resize_to_limit: [600, 400]), class: "rounded-md shadow" %>
+          <% end %>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+</section>

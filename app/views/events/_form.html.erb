@@ -1,0 +1,58 @@
+<%= form_with(model: @event, local: true, html: { multipart: true }) do |f| %>
+  <% if @event.errors.any? %>
+    <div class="alert alert-error mb-4">
+      <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
+      <ul>
+        <% @event.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <!-- Title -->
+  <div class="mb-4">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "input input-bordered w-full" %>
+  </div>
+
+  <!-- Date -->
+  <div class="mb-4">
+    <%= f.label :date %>
+    <%= f.date_field :date, class: "input input-bordered w-full" %>
+  </div>
+
+  <!-- Photos (existing + new previews in same container) -->
+  <div class="mb-4" data-controller="attachments" data-attachments-target="container">
+    <h3 class="font-semibold mb-2">Photos</h3>
+    <div class="flex gap-4 flex-wrap" data-attachments-target="previewContainer">
+
+      <!-- Existing photos -->
+      <% @event.photos.each do |photo| %>
+        <div class="relative" data-attachments-target="photo">
+          <%= image_tag photo.variant(resize_to_limit: [150, 150]), class: "rounded shadow" %>
+          <%= f.hidden_field :photos, multiple: true, value: photo.signed_id, data: { attachments_target: "input" } %>
+
+          <button type="button"
+                  class="absolute top-0 right-0 bg-red-500 text-white rounded-full px-2"
+                  data-action="click->attachments#remove">
+            ✕
+          </button>
+        </div>
+      <% end %>
+
+      <!-- New previews will be inserted here by Stimulus -->
+    </div>
+
+    <!-- File input -->
+    <div class="mt-4">
+      <%= f.file_field :photos, multiple: true,
+            data: { action: "change->attachments#preview" },
+            class: "file-input file-input-bordered w-full" %>
+    </div>
+  </div>
+
+  <div>
+    <%= f.submit class: "btn btn-primary" %>
+  </div>
+<% end %>
