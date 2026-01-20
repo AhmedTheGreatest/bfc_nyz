@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get "about",      to: "pages#about"
   get "academics",  to: "pages#academics"
   get "facilities", to: "pages#facilities"
+  get "faculty",    to: "pages#faculty"
   get "contact",    to: "pages#contact"
   post "contact",   to: "pages#submit_contact"
 
