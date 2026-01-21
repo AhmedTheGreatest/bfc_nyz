@@ -36,17 +36,18 @@
         <div data-mobile-menu-target="menu"
              class="fixed top-0 left-0 w-full h-full bg-base-100 transform -translate-x-full transition-transform duration-300 z-40">
           <div class="flex justify-end p-4">
-            <button class="btn btn-ghost text-3xl" data-action="click->mobile-menu#toggle">&times;</button>
+            <!-- use hide instead of toggle -->
+            <button class="btn btn-ghost text-3xl" data-action="click->mobile-menu#hide">&times;</button>
           </div>
           <ul class="flex flex-col items-center justify-center h-full gap-6 text-xl">
-            <li><%= link_to "Home", root_path, class: "btn btn-ghost" %></li>
-            <li><%= link_to "About", about_path, class: "btn btn-ghost" %></li>
-            <li><%= link_to "Academics", academics_path, class: "btn btn-ghost" %></li>
-            <li><%= link_to "Facilities", facilities_path, class: "btn btn-ghost" %></li>
-            <li><%= link_to "Faculty", faculty_path, class: "btn btn-ghost" %></li>
-            <li><%= link_to "Contact", contact_path, class: "btn btn-ghost" %></li>
-            <li><%= link_to "Announcements", announcements_path, class: "btn btn-ghost" %></li>
-            <li><%= link_to "Events", events_path, class: "btn btn-ghost" %></li>
+            <li><%= link_to "Home", root_path, class: "btn btn-ghost", data: { action: "click->mobile-menu#hide" } %></li>
+            <li><%= link_to "About", about_path, class: "btn btn-ghost", data: { action: "click->mobile-menu#hide" } %></li>
+            <li><%= link_to "Academics", academics_path, class: "btn btn-ghost", data: { action: "click->mobile-menu#hide" } %></li>
+            <li><%= link_to "Facilities", facilities_path, class: "btn btn-ghost", data: { action: "click->mobile-menu#hide" } %></li>
+            <li><%= link_to "Faculty", faculty_path, class: "btn btn-ghost", data: { action: "click->mobile-menu#hide" } %></li>
+            <li><%= link_to "Contact", contact_path, class: "btn btn-ghost", data: { action: "click->mobile-menu#hide" } %></li>
+            <li><%= link_to "Announcements", announcements_path, class: "btn btn-ghost", data: { action: "click->mobile-menu#hide" } %></li>
+            <li><%= link_to "Events", events_path, class: "btn btn-ghost", data: { action: "click->mobile-menu#hide" } %></li>
           </ul>
         </div>
       </div>
