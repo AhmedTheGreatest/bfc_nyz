@@ -88,8 +88,9 @@ production:
   primary: &primary_production
     <<: *default
     database: bfc_nyz_production
-    username: bfc_nyz
-    password: <%= ENV["BFC_NYZ_DATABASE_PASSWORD"] %>
+#    username: bfc_nyz
+    username: ahmed
+#    password: <%= ENV["BFC_NYZ_DATABASE_PASSWORD"] %>
   cache:
     <<: *primary_production
     database: bfc_nyz_production_cache
